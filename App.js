@@ -4,16 +4,21 @@ import './global.css'
 
 // packages
 import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
 
+// files
+import { store } from './src/redux/store';
 
 // screens
 import MainNavigation from './src/navigation/MainNavigation';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <MainNavigation />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <MainNavigation />
+      </NavigationContainer>
+    </Provider>
   )
 }
 
