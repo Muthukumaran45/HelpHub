@@ -15,8 +15,6 @@ const HomeScreen = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme()
 
 
-
-
   return (
     <>
       <StatusBar className='bg-blue-900' />
