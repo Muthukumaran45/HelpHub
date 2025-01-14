@@ -8,6 +8,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 
 // components
 import CallCards from '../components/Cards/CallCards';
+import { HEADER_COLORS, STATUSBAR_COLORS } from '../theme/colors';
 
 
 const HomeScreen = () => {
@@ -17,10 +18,10 @@ const HomeScreen = () => {
 
   return (
     <>
-      <StatusBar className='bg-blue-900' />
+      <StatusBar backgroundColor={STATUSBAR_COLORS.home_screen} />
 
       {/* header */}
-      <View className='py-4 items-center flex-row justify-between pl-5 bg-blue-900'>
+      <View className='py-4 items-center flex-row justify-between pl-5' style={{ backgroundColor: HEADER_COLORS.home_screen }}>
         <Text className='font-bold text-white text-xl'>Help Hub</Text>
 
         <View>
@@ -33,6 +34,7 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
       >
 
+        {/* Top card */}
         <View className='mt-3 mx-2 justify-end items-center relative'>
           <Image
             className='rounded-lg'
@@ -46,46 +48,9 @@ const HomeScreen = () => {
           </View>
         </View>
 
-
-
+        {/* call cards */}
         <View className='bg-neutral-00 dark:bg-black pt-4'>
           <CallCards />
-        </View>
-
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          className='pb-5'
-        >
-          <View className='bg-red-300 mt-3 mx-2 rounded-lg justify-center items-center dark:bg-neutral-600' style={{ width: wp(96), height: hp(23) }}>
-            <Text className='font-bold text-xl text-neutral-700 dark:text-white'>Hey Hi</Text>
-            <Text className='font-bold text-2xl text-neutral-700 dark:text-white'>Welcom to our Help Hub</Text>
-            <Text className='font-bold text-lg text-neutral-700 dark:text-white'>Find Help, Fast and Easy</Text>
-          </View>
-
-          <View className='bg-blue-300 mt-3 mx-2 rounded-lg justify-center items-center dark:bg-neutral-600' style={{ width: wp(96), height: hp(23) }}>
-            <Text className='font-bold text-xl text-neutral-700 dark:text-white'>Hey Hi</Text>
-            <Text className='font-bold text-2xl text-neutral-700 dark:text-white'>Welcom to our Help Hub</Text>
-            <Text className='font-bold text-lg text-neutral-700 dark:text-white'>Find Help, Fast and Easy</Text>
-          </View>
-
-          <View className='bg-orange-300 mt-3 mx-2 rounded-lg justify-center items-center dark:bg-neutral-600' style={{ width: wp(96), height: hp(23) }}>
-            <Text className='font-bold text-xl text-neutral-700 dark:text-white'>Hey Hi</Text>
-            <Text className='font-bold text-2xl text-neutral-700 dark:text-white'>Welcom to our Help Hub</Text>
-            <Text className='font-bold text-lg text-neutral-700 dark:text-white'>Find Help, Fast and Easy</Text>
-          </View>
-        </ScrollView>
-
-
-        <View className='px-2 flex-col gap-5 pb-10'>
-          <View className='flex-row justify-between'>
-            <View className='bg-red-300 rounded-lg dark:bg-neutral-600' style={{ width: wp(45), height: hp(20) }}></View>
-            <View className='bg-green-300 rounded-lg dark:bg-neutral-600' style={{ width: wp(45), height: hp(20) }}></View>
-          </View>
-          <View className='flex-row justify-between'>
-            <View className='bg-neutral-300 rounded-lg dark:bg-neutral-600' style={{ width: wp(45), height: hp(20) }}></View>
-            <View className='bg-orange-300 rounded-lg dark:bg-neutral-600' style={{ width: wp(45), height: hp(20) }}></View>
-          </View>
         </View>
 
       </ScrollView>

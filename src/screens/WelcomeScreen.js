@@ -5,6 +5,7 @@ import React, {useEffect, useState} from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
 import { useNavigation } from '@react-navigation/native';
+import { HEADER_COLORS, WELCOME_SCREEN_COLORS } from '../theme/colors';
 
 // colors
 
@@ -26,8 +27,8 @@ const WelcomeScreen = () => {
 
   return (
     <>
-      <StatusBar className='bg-green-400' />
-      <View className='flex-1 justify-center items-center bg-green-400'>
+      <StatusBar backgroundColor={HEADER_COLORS.welcome_screen} />
+      <View className='flex-1 justify-center items-center' style={{backgroundColor: WELCOME_SCREEN_COLORS.bg_color}}>
 
         {/* logo image with rings */}
         <Animated.View className='rounded-full' style={{ padding: ring2padding, backgroundColor: "rgba(255, 255, 255, 0.2)" }}>
