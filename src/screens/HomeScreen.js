@@ -1,4 +1,4 @@
-import { StatusBar, StyleSheet, Text, View, Switch, FlatList, ScrollView } from 'react-native'
+import { StatusBar, StyleSheet, Text, View, Switch, FlatList, ScrollView, Image } from 'react-native'
 import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { useColorScheme } from 'nativewind';
 
@@ -19,11 +19,11 @@ const HomeScreen = () => {
 
   return (
     <>
-      <StatusBar className='bg-green-400' />
+      <StatusBar className='bg-blue-900' />
 
       {/* header */}
-      <View className='py-4 items-center flex-row justify-between pl-5 bg-green-400'>
-        <Text className='font-bold'>Help Hub</Text>
+      <View className='py-4 items-center flex-row justify-between pl-5 bg-blue-900'>
+        <Text className='font-bold text-white text-xl'>Help Hub</Text>
 
         <View>
           <Switch value={colorScheme == 'dark'} onValueChange={toggleColorScheme} />
@@ -35,11 +35,20 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
       >
 
-        <View className='bg-green-300 mt-3 mx-2 rounded-lg justify-center items-center dark:bg-neutral-600' style={{ height: hp(25) }}>
-          <Text className='font-bold text-xl text-neutral-700 dark:text-white'>Hey Hi</Text>
-          <Text className='font-bold text-2xl text-neutral-700 dark:text-white'>Welcom to our Help Hub</Text>
-          <Text className='font-bold text-lg text-neutral-700 dark:text-white'>Find Help, Fast and Easy</Text>
+        <View className='mt-3 mx-2 justify-end items-center relative'>
+          <Image
+            className='rounded-lg'
+            style={{ height: hp(25), width: "100%" }}
+            source={require("../../assets/logo/helpline_header.jpg")}
+            resizeMode='cover'
+          />
+          <View className='absolute justify-center items-center bottom-5'>
+            <Text className='font-bold text-2xl text-white'>Welcom to our Help Hub</Text>
+            <Text className='font-bold text-lg text-white'>Find Help, Fast and Easy</Text>
+          </View>
         </View>
+
+
 
         <View className='bg-neutral-00 dark:bg-black pt-4'>
           <CallCards />

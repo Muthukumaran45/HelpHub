@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
     Modal,
     Linking,
+    Image
 } from 'react-native';
 
 // redux
@@ -17,8 +18,6 @@ import { selectCallCards } from '../../redux/slice/callCardSlice/callCardSlice';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import FastImage from 'react-native-fast-image';
 
-// components
-import { getIconComponent } from '../Icons/LucideIcon';
 
 const CallCards = () => {
     const callCardData = useSelector(selectCallCards);
@@ -67,24 +66,33 @@ const CallCards = () => {
     const renderItem = ({ item }) => (
         <View className="gap-3 mr-3">
             {item.map((card, index) => {
-                const IconComponent = getIconComponent(card.iconName);
 
                 return (
+
                     <TouchableOpacity
                         key={index}
-                        className="bg-white rounded-lg items-center justify-center dark:bg-neutral-600"
-                        style={{ width: wp(36), height: hp(18) }}
+                        className="bg-white rounded-lg justify-end dark:bg-neutral-600 relative"
+                        style={{ width: wp(40), height: hp(25) }}
                         onPress={() => handleCardPress(card)} // Handle card press
                     >
-                        {IconComponent ? (
-                            <IconComponent size={hp(8)} color={"red"} />
+                        {card ? (
+
+                            <Image
+                                style={{ width: wp(40), height: hp(25), borderRadius: hp(1) }}
+                                source={card?.imageUri}
+                                resizeMode={"stretch"}
+                            />
                         ) : (
-                            <Text className="text-neutral-600 font-bold dark:text-white">No Icon</Text>
+                            <Text className="text-neutral-600 font-bold dark:text-white">No card</Text>
                         )}
-                        <Text className="text-neutral-600 font-bold dark:text-white mt-2">
-                            {formatName(card.name)}
-                        </Text>
-                        <Text className="text-neutral-600 dark:text-white">{card.number}</Text>
+
+                        <View className='absolute  w-full pl-2 rounded-t-lg' style={{ backgroundColor: 'rgba(0,0,0,0.3)'}}>
+                            <Text className=" font-bold text-lg text-white mt-2">
+                                {formatName(card.name)}
+                            </Text>
+                            <Text className="font-bold text-white pb-2">{card.number}</Text>
+                        </View>
+
                     </TouchableOpacity>
                 );
             })}
@@ -113,7 +121,7 @@ const CallCards = () => {
                     <View className='bg-white rounded-xl items-center' style={{ width: wp(90) }}>
 
                         <FastImage
-                            style={{ width: wp(60), height: hp(20) }}
+                            style={{ width: wp(60), height: hp(20), marginVertical: hp(2), borderRadius: hp(1) }}
                             source={selectedCard?.imageUri}
                             resizeMode={FastImage.resizeMode.cover}
                         />
@@ -133,11 +141,11 @@ const CallCards = () => {
                             </TouchableOpacity>
 
                             <TouchableOpacity
-                                className='bg-red-600 justify-center items-center rounded-lg'
+                                className='bg-red-400 justify-center items-center rounded-lg'
                                 style={{ width: wp(40), height: hp(6.5) }}
                                 onPress={() => setIsModalVisible(false)}
                             >
-                                <Text className='text-white font-bold text-xl'>Cancle</Text>
+                                <Text className='text-white font-bold text-xl'>Cancel</Text>
                             </TouchableOpacity>
                         </View>
 
