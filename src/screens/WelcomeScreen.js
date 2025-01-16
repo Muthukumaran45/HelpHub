@@ -34,7 +34,7 @@ const WelcomeScreen = () => {
         <Animated.View className='rounded-full' style={{ padding: ring2padding, backgroundColor: "rgba(255, 255, 255, 0.2)" }}>
           <Animated.View className='rounded-full' style={{ padding: ring1padding, backgroundColor: "rgba(255, 255, 255, 0.2)" }}>
             <Image
-              source={require("../../assets/logo/emg_logo.jpg")}
+              source={require("../../assets/logo/logo.png")}
               style={{ width: wp(40), height: hp(20) }}
               className='rounded-full'
             />

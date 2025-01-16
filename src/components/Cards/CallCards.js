@@ -72,13 +72,13 @@ const CallCards = () => {
                     <TouchableOpacity
                         key={index}
                         className="bg-white rounded-lg justify-end dark:bg-neutral-600 relative"
-                        style={{ width: wp(40), height: hp(25) }}
+                        style={{ width: wp(40), height: hp(23) }}
                         onPress={() => handleCardPress(card)} // Handle card press
                     >
                         {card ? (
 
                             <Image
-                                style={{ width: wp(40), height: hp(25), borderRadius: hp(1) }}
+                                style={{ width: wp(40), height: hp(23), borderRadius: hp(1) }}
                                 source={card?.imageUri}
                                 resizeMode={"stretch"}
                             />
@@ -86,7 +86,7 @@ const CallCards = () => {
                             <Text className="text-neutral-600 font-bold dark:text-white">No card</Text>
                         )}
 
-                        <View className='absolute  w-full pl-2 rounded-t-lg' style={{ backgroundColor: 'rgba(0,0,0,0.3)'}}>
+                        <View className='absolute  w-full pl-2 rounded-lg' style={{ backgroundColor: 'rgba(0,0,0,0.3)'}}>
                             <Text className=" font-bold text-lg text-white mt-2">
                                 {formatName(card.name)}
                             </Text>

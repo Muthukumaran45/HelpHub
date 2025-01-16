@@ -1,18 +1,24 @@
 import WelcomeScreen from "../screens/WelcomeScreen"
 
 
-// Staus bar colors
+// Staus bar 
 export const STATUSBAR_COLORS = {
     home_screen : "#9ba9ff"
 }
 
-// Top Header colors
+// Top Header 
 export const HEADER_COLORS = {
     home_screen : "#9ba9ff",
     welcome_screen : "#9ba9ff"
 }
 
-// Bottom navigation bar colors 
+// goback icon 
+export const GOBACK_ICON_COLORS = {
+    help_line_screen : "#fff"
+}
+
+
+// Bottom navigation bar  
 export const BOTTOM_BAR_COLORS = {
     bg_blue: "#9ba9ff",
     text_white: "#fff",
@@ -20,7 +26,7 @@ export const BOTTOM_BAR_COLORS = {
     inactive_color: "#334195"
 }
 
-// Welcome Screen colors
+// Welcome Screen 
 export const WELCOME_SCREEN_COLORS = {
     bg_color : "#9ba9ff"
 }
